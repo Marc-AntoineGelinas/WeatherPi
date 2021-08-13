@@ -2,12 +2,15 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
   <title>WeatherPi</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css"/>
+
 </head>
 <body>
-<script src="./renderer.js"></script>
+<div id="mapid"></div>
+<script src="node_modules/leaflet/dist/leaflet.js"></script>
+<script src="./app/renderer.js"></script>
 </body>
 </html>
