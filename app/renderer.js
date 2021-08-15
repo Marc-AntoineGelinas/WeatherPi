@@ -14,29 +14,56 @@ L.tileLayer("https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=
     .addTo(map)
 
 //CurrentTime
-function cooldown(func, cooldownLength){
-    setTimeout(func, cooldownLength)
+function refreshTimer(func, refreshLength){
+    setTimeout(func, refreshLength)
 }
 
 function displayCurrentTime(){
     document.getElementById('currentTime').innerHTML = new Date().toLocaleString()
-    cooldown(displayCurrentTime, 1000);
+    refreshTimer(displayCurrentTime, 1000);
 }
 
 displayCurrentTime()
 
 //Current Weather
-function getCurrentWeather(){
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=Montreal&appid='+process.env.OPEN_WEATHER_MAP_APIKEY+'&units=metric')
-        .then(res => res.json())
-        .then((out) => {
-            console.log(out)
-            // return out
-        }).catch(error => console.warn(error))
+let currentTemp
+let weather
+let minTemp
+let maxTemp
+let pressure
+let feltTemp
+let humidity
+let sunrise
+let sunset
+let windSpeed
+let forecast
+
+async function getCurrentWeatherData(){
+    await fetch('https://api.openweathermap.org/data/2.5/weather?q=Montreal&appid='+process.env.OPEN_WEATHER_MAP_APIKEY+'&units=metric')
+        .then((res) => res.json())
+        .then((data) => {
+            currentTemp = data.main.temp
+            weather = data.weather['0'].main
+            minTemp = data.main.temp_min
+            maxTemp = data.main.temp_max
+            pressure = data.main.pressure
+            feltTemp = data.main.feels_like
+            humidity = data.main.humidity
+            sunrise = data.sys.sunrise
+            sunset = data.sys.sunset
+            windSpeed = data.wind.speed
+        })
+        .catch(error => console.warn(error))
 }
 
-function displayCurrentWeather(){
-    getCurrentWeather()
+async function displayCurrentWeather() {
+    await getCurrentWeatherData()
+    console.log(currentTemp)
+    document.getElementById('currentTemperature').innerHTML = + currentTemp + '°C'
+    // document.getElementById('sunrise').innerHTML = new Date(sunrise * 1000).toLocaleTimeString('fr-CA')
+    // document.getElementById('sunset').innerHTML = new Date(sunset* 1000).toLocaleTimeString('fr-CA')
+
+    refreshTimer(displayCurrentWeather, 1800000) // 30 minutes refresh
 }
 
 displayCurrentWeather()
