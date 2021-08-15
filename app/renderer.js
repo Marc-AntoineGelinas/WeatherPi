@@ -59,9 +59,17 @@ async function getCurrentWeatherData(){
 async function displayCurrentWeather() {
     await getCurrentWeatherData()
     console.log(currentTemp)
-    document.getElementById('currentTemperature').innerHTML = + currentTemp + '°C'
-    // document.getElementById('sunrise').innerHTML = new Date(sunrise * 1000).toLocaleTimeString('fr-CA')
-    // document.getElementById('sunset').innerHTML = new Date(sunset* 1000).toLocaleTimeString('fr-CA')
+    document.getElementById('weather').innerHTML = weather
+    document.getElementById('currentTemperature').innerHTML = currentTemp + '°C'
+    document.getElementById('feltTemp').innerHTML = feltTemp + '°C'
+    document.getElementById('minMaxTemp').innerHTML = minTemp + '/' + maxTemp
+    document.getElementById('pressure').innerHTML = pressure
+    document.getElementById('humidity').innerHTML = humidity + '%'
+    document.getElementById('windSpeed').innerHTML = windSpeed + 'km/h'
+    document.getElementById('sunriseAndSunset').innerHTML =
+        new Date(sunrise * 1000).toLocaleTimeString('fr-CA')
+        + '/' +
+        new Date(sunset* 1000).toLocaleTimeString('fr-CA')
 
     refreshTimer(displayCurrentWeather, 1800000) // 30 minutes refresh
 }

@@ -8,39 +8,64 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    align-content: center;
-}
-
-.cell {
-    justify-content: center;
 }
 
 .label {
-    justify-items: center;
+    justify-content: center;
 }
 
 .currentTime {
     grid-area: currentTime;
 }
 
+.weather {
+    grid-area: weather;
+}
+
 .currentTemperature {
     grid-area: currentTemperature;
 }
 
-.sunrise {
-    grid-area: sunrise;
+.feltTemp {
+    grid-area: feltTemp;
 }
 
+.minMaxTemp {
+    grid-area: minMaxTemp;
+}
+
+.pressure {
+    grid-area: pressure;
+}
+
+.humidity {
+    grid-area: humidity;
+}
+
+.windSpeed {
+    grid-area: windSpeed;
+}
+
+.sunriseAndSunset {
+    grid-area: sunriseAndSunset;
+}
 .forecast {
     grid-area: forecast;
 }
 
 .container {
     display: grid;
+    margin:0;
     grid-template-columns: 75% 25%;
     grid-template-rows: auto;
     grid-template-areas:
     "map currentTime"
+    "map weather"
     "map currentTemperature"
-    /*"map sunrise"*/
+    "map feltTemp"
+    "map minMaxTemp"
+    "map pressure"
+    "map humidity"
+    "map windSpeed"
+    "map sunriseAndSunset"
 }
