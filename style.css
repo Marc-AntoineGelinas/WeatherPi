@@ -1,35 +1,38 @@
 #mapid { height: 600px; }
 
-.item-a {
+.map {
     grid-area: map;
 }
 
-.item-b {
+.cell, .label {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.cell {
+    justify-content: center;
+}
+
+.label {
+    justify-items: center;
+}
+
+.currentTime {
     grid-area: currentTime;
-    display:flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.item-c {
+.currentTemperature {
     grid-area: currentTemperature;
-    display:flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.item-d {
-    grid-area: sunriseAndSunset;
-    display:flex;
-    align-items: center;
-    justify-content: center;
+.sunrise {
+    grid-area: sunrise;
 }
 
-.item-e {
+.forecast {
     grid-area: forecast;
-    display:flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .container {
@@ -39,6 +42,5 @@
     grid-template-areas:
     "map currentTime"
     "map currentTemperature"
-    "map sunriseAndSunset"
-    "map forecast"
+    /*"map sunrise"*/
 }
