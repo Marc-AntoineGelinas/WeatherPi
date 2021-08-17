@@ -1,17 +1,29 @@
-#mapid { height: 600px; }
+#mapid { height: 90vh; }
+
+html {
+    height: 100vh;
+}
+
+body{
+    min-height: 100vh;
+    width: 100vw;
+    margin:0;
+}
 
 .map {
     grid-area: map;
 }
 
-.cell, .label {
+.label {
     display:flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    font-weight: bold;
 }
 
-.label {
-    justify-content: center;
+.data {
+    font-weight: normal;
 }
 
 .currentTime {
@@ -49,6 +61,15 @@
 .sunriseAndSunset {
     grid-area: sunriseAndSunset;
 }
+
+.layerSwitch {
+    grid-area: layerSwitch;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
 .forecast {
     grid-area: forecast;
 }
@@ -67,5 +88,5 @@
     "map pressure"
     "map humidity"
     "map windSpeed"
-    "map sunriseAndSunset"
+    "layerSwitch sunriseAndSunset"
 }

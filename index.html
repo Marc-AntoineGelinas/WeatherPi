@@ -11,15 +11,20 @@
 <body>
 <section class="container">
   <div id="mapid" class="map"></div>
-  <div class="currentTime label">Current time<div id="currentTime" ></div></div>
-  <div class="weather label">Weather<div id="weather" ></div></div>
-  <div class="currentTemperature label">Current temperature<div id="currentTemperature"></div></div>
-  <div class="feltTemp label">Felt temperature<div id="feltTemp"></div></div>
-  <div class="minMaxTemp label">Min temp/Max temp<div id="minMaxTemp"></div></div>
-  <div class="pressure label">Pressure<div id="pressure"></div></div>
-  <div class="humidity label">Humidity<div id="humidity"></div></div>
-  <div class="windSpeed label">Wind speed<div id="windSpeed"></div></div>
-  <div class="sunriseAndSunset label">Sunrise/Sunset <div id="sunriseAndSunset"></div></div>
+  <div class="currentTime label">Current time<div id="currentTime" class="data"></div></div>
+  <div class="weather label">Weather<div id="weather" class="data"></div></div>
+  <div class="currentTemperature label">Current temperature<div id="currentTemperature" class="data"></div></div>
+  <div class="feltTemp label">Felt temperature<div id="feltTemp" class="data"></div></div>
+  <div class="minMaxTemp label">Min temp/Max temp<div id="minMaxTemp" class="data"></div></div>
+  <div class="pressure label">Pressure<div id="pressure" class="data"></div></div>
+  <div class="humidity label">Humidity<div id="humidity" class="data"></div></div>
+  <div class="windSpeed label">Wind speed<div id="windSpeed" class="data"></div></div>
+  <div class="sunriseAndSunset label">Sunrise/Sunset <div id="sunriseAndSunset" class="data"></div></div>
+  <div class="layerSwitch">
+    <button type="button" onclick="previousLayer()">&#8592;</button>
+    <div>Switch layer</div>
+    <button type="button" onclick="nextLayer()">&#8594;</button>
+  </div>
 </section>
 <script src="node_modules/leaflet/dist/leaflet.js"></script>
 <script src="./app/renderer.js"></script>
