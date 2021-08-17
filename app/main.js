@@ -10,7 +10,7 @@ function createWindow () {
             contextIsolation:false
         }
     })
-    // win.removeMenu()
+    win.removeMenu()
     win.loadFile('index.html')
 }
 

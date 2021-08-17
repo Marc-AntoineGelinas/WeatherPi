@@ -56,3 +56,4 @@ spec/fixtures/logo.png
 
 # env variables
 .env
+out/

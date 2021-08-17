@@ -4,8 +4,7 @@
   "description": "Weather dashboard for raspberrypi",
   "main": "app/main.js",
   "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -18,11 +17,45 @@
   },
   "homepage": "https://github.com/Marc-AntoineGelinas/WeatherPi#readme",
   "devDependencies": {
+    "@electron-forge/maker-rpm": "^6.0.0-beta.59",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.59",
+    "@electron-forge/maker-zip": "^6.0.0-beta.59",
     "electron": "^13.1.9"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
+    "dpkg": "^1.0.0",
+    "electron-packager": "^15.3.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "find-config": "^1.0.0",
     "leaflet": "^1.7.1",
     "node-fetch": "^2.6.1"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "weatherpi"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }
