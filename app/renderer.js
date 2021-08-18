@@ -87,6 +87,7 @@ async function displayCurrentWeather() {
         + '/' +
         new Date(sunset * 1000).toLocaleTimeString('fr-CA')
 
+    weatherLayers[currentLayerIndex].removeFrom(map)
     weatherLayers[currentLayerIndex].addTo(map)
 
     refreshTimer(displayCurrentWeather, 1800000) // 30 minutes refresh

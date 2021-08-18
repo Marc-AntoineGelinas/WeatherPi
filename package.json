@@ -17,9 +17,6 @@
   },
   "homepage": "https://github.com/Marc-AntoineGelinas/WeatherPi#readme",
   "devDependencies": {
-    "@electron-forge/maker-rpm": "^6.0.0-beta.59",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.59",
-    "@electron-forge/maker-zip": "^6.0.0-beta.59",
     "electron": "^13.1.9"
   },
   "dependencies": {
@@ -36,23 +33,19 @@
       "packagerConfig": {},
       "makers": [
         {
-          "name": "@electron-forge/maker-squirrel",
           "config": {
             "name": "weatherpi"
           }
         },
         {
-          "name": "@electron-forge/maker-zip",
           "platforms": [
             "darwin"
           ]
         },
         {
-          "name": "@electron-forge/maker-deb",
           "config": {}
         },
         {
-          "name": "@electron-forge/maker-rpm",
           "config": {}
         }
       ]
