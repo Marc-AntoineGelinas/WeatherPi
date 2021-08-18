@@ -8,9 +8,9 @@ let map = L.map('mapid').setView([45.5017, -73.5673], 10);
 let weatherLayers = []
 let currentLayerIndex = 0
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+let maplayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+})
 
 //CurrentTime
 function refreshTimer(func, refreshLength){
@@ -87,7 +87,13 @@ async function displayCurrentWeather() {
         + '/' +
         new Date(sunset * 1000).toLocaleTimeString('fr-CA')
 
-    weatherLayers[currentLayerIndex].removeFrom(map)
+    //This is to ensure the layers get actually reset.
+    //For some reason trying to remove the current layer adding it back
+    //doesn't seem to actually remove it.
+    map.eachLayer(function (layer){
+        map.removeLayer(layer)
+    })
+    maplayer.addTo(map)
     weatherLayers[currentLayerIndex].addTo(map)
 
     refreshTimer(displayCurrentWeather, 1800000) // 30 minutes refresh
